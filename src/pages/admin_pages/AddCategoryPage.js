@@ -2,6 +2,7 @@ import React from "react";
 import {Container, Form, Button} from "react-bootstrap";
 /* CODE HERE */
 import AlertMessage from "../../components/AlertMessage";
+import { Link } from "react-router-dom";
 
 const AddCategoryPage = () => {
   const [name, setName] = React.useState("");
@@ -46,8 +47,9 @@ const AddCategoryPage = () => {
       <Container>
         {error && <AlertMessage variant="danger" message={error} />}
         {success && <AlertMessage variant="success" message={success} />}
-          {/* CODE HERE */}
+        <Link to='/categories'>
           <Button variant="primary" className="my-3">Categories List</Button>
+        </Link>
 
         <Form>
           <Form.Group controlId="name" className="mb-3">

@@ -2,6 +2,7 @@ import React from "react";
 import { Table, Container, Button, Col } from "react-bootstrap";
 /* CODE HERE */
 import AlertMessage from "../../components/AlertMessage";
+import { Link } from "react-router-dom";
 
 const CategoriesListPage = () => {
   const [categories, setCategories] = React.useState(
@@ -22,8 +23,9 @@ const CategoriesListPage = () => {
       )}
       {categories.length > 0 && (
         <Container>
-          {/* CODE HERE */}
-          <Button className="my-3">Add Category</Button>
+          <Link to='/categories/create'>
+            <Button className="my-3">Add Category</Button>
+          </Link>
           
           <Table striped hover bordered className="table-sm">
             <thead>

@@ -41,8 +41,15 @@ const App = () => {
               path='/signup'
               element={<SignupPage />}
             />
+            <Route
+              path='/categories'
+              element={<CategoriesListPage />}
+            />
+            <Route
+              path='/categories/create'
+              element={<AddCategoryPage />}
+            />
           </Routes>
-          {/* CODE HERE */}
         </Container>
       </main>
       <Footer />
