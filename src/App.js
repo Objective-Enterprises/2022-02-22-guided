@@ -3,7 +3,6 @@ import Footer from "./components/Footer";
 import { Container } from "react-bootstrap";
 import ProductsListPage from "./pages/ProductsListPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import ProductsListPage from "./pages/ProductPage";
 // import UserCartPage from "./pages/UserCartPage";
 import categories from "./categories";
 import users from "./users";
@@ -48,6 +47,26 @@ const App = () => {
             <Route
               path='/categories/create'
               element={<AddCategoryPage />}
+            />
+            <Route
+              path='/profile'
+              element={<UserProfilePage />}
+            />
+            <Route
+              path='/users'
+              element={<UsersListPage />}
+            />
+            <Route
+              path='/users/create'
+              element={<AddUserPage />}
+            />
+            <Route
+              path='/products'
+              element={<AdminProductsListPage />}
+            />
+            <Route
+              path='/products/create'
+              element={<AddProductPage />}
             />
           </Routes>
         </Container>
