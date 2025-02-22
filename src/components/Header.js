@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-/* CODE HERE */
+import { LinkContainer } from "react-router-bootstrap";
 
 const Header = () => {
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
   const handleSignOut = (event) => {
     localStorage.removeItem("loggedInUser");
-    {/* CODE HERE */}
+    window.location.replace('/login')
   };
 
   return (
@@ -20,9 +20,9 @@ const Header = () => {
         collapseOnSelect
       >
         <Container>
-          {/* CODE HERE */}
+          <LinkContainer to='/'>
             <Navbar.Brand>ECart</Navbar.Brand>
-          {/* CODE HERE */}
+          </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
@@ -42,24 +42,26 @@ const Header = () => {
               )}
 
               {loggedInUser && (
-                /* CODE HERE */
+                <LinkContainer to='/profile'>
                   <Nav.Link>
                     <i className="bi bi-person-badge"> Profile</i>
                   </Nav.Link>
-                /* CODE HERE */
+                </LinkContainer>
               )}
 
               {loggedInUser && loggedInUser.isAdmin && (
                 <NavDropdown title="Admin" id="adminmenu">
-                  {/* CODE HERE */}
+                  <LinkContainer to='/users'>
                     <NavDropdown.Item>Users</NavDropdown.Item>
-                    {/* CODE HERE */}
-                  
+                  </LinkContainer>
+
+                  <LinkContainer to='/products'> 
                     <NavDropdown.Item>Products</NavDropdown.Item>
-                  {/* CODE HERE */}
+                  </LinkContainer>
                   
+                  <LinkContainer to='/categories'>
                     <NavDropdown.Item>Categories</NavDropdown.Item>
-                  {/* CODE HERE */}
+                  </LinkContainer>
                   
                     <NavDropdown.Item>Orders</NavDropdown.Item>
                   
@@ -67,18 +69,16 @@ const Header = () => {
               )}
 
               {!loggedInUser && (
-                /* CODE HERE */
+                <LinkContainer to='/login'>
                   <Nav.Link>
                     <i className="bi bi-box-arrow-in-right"> Log In</i>
                   </Nav.Link>
-                
+                </LinkContainer>
               )}
               {loggedInUser && (
-                /* CODE HERE */
-                  <Nav.Link>
+                  <Nav.Link onClick={handleSignOut}>
                     <i className="bi bi-box-arrow-in-right"> Sign Out</i>
                   </Nav.Link>
-                
               )}
             </Nav>
           </Navbar.Collapse>
